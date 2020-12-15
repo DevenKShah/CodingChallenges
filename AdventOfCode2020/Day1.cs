@@ -1,16 +1,13 @@
 using System;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace AdventOfCode2020
 {
     public class Day1 : IRunner
     {
-        public async Task Run()
+        public void Run(string[] inputs)
         {
-            var rawData = await File.ReadAllLinesAsync(Utils.GetPath(nameof(Day1)));
-            var arr = rawData.Select(r => int.Parse(r));
+            var arr = inputs.Select(r => int.Parse(r));
 
             Func<int, int> GetProduct = (layer) => arr
                 .SelectMany(a => arr.Select(ar => layer > 1 ? new[] { a, ar } : new[] {a}) ) //create array by adding the next value
@@ -20,15 +17,6 @@ namespace AdventOfCode2020
     
             Console.WriteLine($"Product for 2 numbers {GetProduct(2)}");
             Console.WriteLine($"Product for 3 numbers {GetProduct(3)}");
-        }
-
-    }
-
-    public static class Utils
-    {
-        public static string GetPath(string fileName)
-        {
-            return Path.Combine($"Inputs/{fileName}.txt",".");
         }
     }
 }

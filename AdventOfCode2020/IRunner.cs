@@ -5,15 +5,14 @@ namespace AdventOfCode2020
 {
     public interface IRunner
     {
-        Task Run();
+        void Run(string[] inputs);
     }
 
     public class DummyRunner : IRunner
     {
-        public Task Run()
+        public void Run(string[] inputs)
         {
             Console.WriteLine("The day is not available yet.");
-            return Task.CompletedTask;
         }
     }
 }

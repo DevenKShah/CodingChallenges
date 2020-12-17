@@ -10,8 +10,8 @@ namespace AdventOfCode2020
         {
             var firstPolicyCount = inputs.Select(GetPartsBySplittingString).Where(CheckFirstPolicy).Count();
             var SecondPolicyCount = inputs.Select(GetPartsUsingRegexGroups).Where(CheckSecondPolicy).Count();
-            Console.WriteLine($"Count of correct passwords according to first policy {firstPolicyCount}");
-            Console.WriteLine($"Count of correct passwords according to second policy {SecondPolicyCount}");
+            Console.WriteLine($"Correct passwords count per first policy - expected: 660 actual: {firstPolicyCount}");
+            Console.WriteLine($"Correct passwords count per second policy - expected: 530 actual: {SecondPolicyCount}");
         }
 
         private (int lower, int higher, string letter, string password) GetPartsUsingRegexGroups(string input)

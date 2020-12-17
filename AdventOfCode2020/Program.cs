@@ -27,6 +27,7 @@ app.OnExecuteAsync(async (cancellationToken) =>
     { 
         1 => new Day1(), 
         2 => new Day2(),
+        4 => new Day4(),
         _ => new DummyRunner() 
     };
 
